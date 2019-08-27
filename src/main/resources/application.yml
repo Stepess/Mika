@@ -1,0 +1,21 @@
+spring:
+
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mikadb
+    username: mika
+    password: pass01
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
