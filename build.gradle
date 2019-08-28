@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.1.7.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'org.siouan.frontend' version '1.2.1'
 }
 
 group = 'com.mine'
@@ -32,4 +33,11 @@ dependencies {
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+}
+
+frontend {
+	nodeVersion = '10.16.0'
+	cleanScript = 'run clean'
+	assembleScript = 'run assemble'
+	checkScript = 'run check'
 }
