@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-
-const axios = require('axios');
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
