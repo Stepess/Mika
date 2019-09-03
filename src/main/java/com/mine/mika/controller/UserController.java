@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/users")
+@RestController
 public class UserController {
 
     private final UserService service;
@@ -18,7 +18,7 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/users")
     public List<User> getAllUsers() {
         return service.getAll();
     }
