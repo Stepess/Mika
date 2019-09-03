@@ -37,20 +37,10 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-      axios.get('http://localhost:8080/users').then(function (response) {
-        console.log(response);
-        this.setState({users: response.entity});
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-    		// client({method: 'GET', path: '/users'}).done(response => {
-    		// 	this.setState({users: response.entity});
-    		// });
+      axios.get('http://localhost:8080/users').then(response => 
+        this.setState({users: response.data})
+      )
+      .catch(error => console.log("Some error occured: " + error))
     }
 
     render() {
@@ -69,8 +59,8 @@ class UserList extends React.Component{
 			<table>
 				<tbody>
 					<tr>
+            <th>Username</th>
 						<th>First Name</th>
-						<th>Last Name</th>
 						<th>Email</th>
 					</tr>
 					{users}
@@ -84,17 +74,12 @@ class User extends React.Component{
 	render() {
 		return (
 			<tr>
+        <td>{this.props.user.username}</td>
 				<td>{this.props.user.firstName}</td>
-				<td>{this.props.user.lastName}</td>
 				<td>{this.props.user.email}</td>
 			</tr>
 		)
 	}
 }
-
-/*ReactDOM.render(
-	<App />,
-	document.getElementById('react')
-)*/
 
 export default App;
