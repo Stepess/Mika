@@ -1,6 +1,15 @@
 group = 'com.mine'
 version = '0.0.1-SNAPSHOT'
 
-repositories {
-	mavenCentral()
+
+allprojects {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		jcenter()
+	}
+}
+
+subprojects {
+	version = '0.0.1'
 }
