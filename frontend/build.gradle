@@ -9,5 +9,6 @@ buildscript {
         classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
     }
 }
+
 apply plugin: 'base'
 apply plugin: 'com.moowork.node'
