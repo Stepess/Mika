@@ -27,18 +27,28 @@ public class UserController {
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable Long id) {
         User user = service.getById(id);
-        return (User) Hibernate.unproxy(user); //TODO investigate
+        return (User) Hibernate.unproxy(user); //TODO investigate exception if unproxy is removed
     }
 
-    @PutMapping("/users")
-    public void updateUser(@RequestBody User user) {
-        service.save(user);
+    //Todo: investigate better uproach
+    @PutMapping("/users/{id}")
+    public void updateUser(@PathVariable Long id, @RequestBody User user) {
+        User userFromBd = service.getById(id);
+        userFromBd.setUsername(user.getUsername());
+        userFromBd.setEmail(user.getEmail());
+        userFromBd.setFirstName(user.getFirstName());
+        service.save(userFromBd);
     }
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@RequestBody User user) {
         service.save(user);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        service.delete(id);
     }
 
 }

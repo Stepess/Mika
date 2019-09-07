@@ -8,10 +8,10 @@ public interface UserService {
 
     User getById(Long id);
 
-    User getByUsername(String username);
-
     List<User> getAll();
 
     void save(User user);
+
+    void delete(Long id);
 
 }

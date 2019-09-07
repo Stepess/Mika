@@ -23,11 +23,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getByUsername(String username) {
-        return null;
-    }
-
-    @Override
     public List<User> getAll() {
         return repository.findAll();
     }
@@ -37,4 +32,8 @@ public class UserServiceImpl implements UserService {
         repository.save(user);
     }
 
+    @Override
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }
