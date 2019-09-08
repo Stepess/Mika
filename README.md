@@ -1,2 +1,2 @@
-# MikaCloud
-MikaCloud is a helper for your day to day tasks
+# Mika
+Mika is simple reactjs + spring boot + posgresql CRUD app
